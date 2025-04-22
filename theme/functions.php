@@ -6,8 +6,8 @@
  *
  * @package gnws
  */
-$random_ver = rand( 1, 1000000000 );
-if ( ! defined( 'GNWS_VERSION' ) ) {
+$random_ver = rand(1, 1000000000);
+if (!defined('GNWS_VERSION')) {
 	/*
 	 * Set the theme’s version number.
 	 *
@@ -15,10 +15,10 @@ if ( ! defined( 'GNWS_VERSION' ) ) {
 	 * to create your production build, the value below will be replaced in the
 	 * generated zip file with a timestamp, converted to base 36.
 	 */
-	define( 'GNWS_VERSION', $random_ver );
+	define('GNWS_VERSION', $random_ver);
 }
 
-if ( ! defined( 'GNWS_TYPOGRAPHY_CLASSES' ) ) {
+if (!defined('GNWS_TYPOGRAPHY_CLASSES')) {
 	/*
 	 * Set Tailwind Typography classes for the front end, block editor and
 	 * classic editor using the constant below.
@@ -42,7 +42,7 @@ if ( ! defined( 'GNWS_TYPOGRAPHY_CLASSES' ) ) {
 	);
 }
 
-if ( ! function_exists( 'gnws_setup' ) ) :
+if (!function_exists('gnws_setup')):
 	/**
 	 * Sets up theme defaults and registers support for various WordPress features.
 	 *
@@ -50,17 +50,18 @@ if ( ! function_exists( 'gnws_setup' ) ) :
 	 * runs before the init hook. The init hook is too late for some features, such
 	 * as indicating support for post thumbnails.
 	 */
-	function gnws_setup() {
+	function gnws_setup()
+	{
 		/*
 		 * Make theme available for translation.
 		 * Translations can be filed in the /languages/ directory.
 		 * If you're building a theme based on gnws, use a find and replace
 		 * to change 'gnws' to the name of your theme in all the template files.
 		 */
-		load_theme_textdomain( 'gnws', get_template_directory() . '/languages' );
+		load_theme_textdomain('gnws', get_template_directory() . '/languages');
 
 		// Add default posts and comments RSS feed links to head.
-		add_theme_support( 'automatic-feed-links' );
+		add_theme_support('automatic-feed-links');
 
 		/*
 		 * Let WordPress manage the document title.
@@ -68,20 +69,20 @@ if ( ! function_exists( 'gnws_setup' ) ) :
 		 * hard-coded <title> tag in the document head, and expect WordPress to
 		 * provide it for us.
 		 */
-		add_theme_support( 'title-tag' );
+		add_theme_support('title-tag');
 
 		/*
 		 * Enable support for Post Thumbnails on posts and pages.
 		 *
 		 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
 		 */
-		add_theme_support( 'post-thumbnails' );
+		add_theme_support('post-thumbnails');
 
 		// This theme uses wp_nav_menu() in two locations.
 		register_nav_menus(
 			array(
-				'menu-1' => __( 'Menu Chính', 'gnws' ),
-				'menu-2' => __( 'Footer Menu', 'gnws' ),
+				'menu-1' => __('Menu Chính', 'gnws'),
+				'menu-2' => __('Footer Menu', 'gnws'),
 			)
 		);
 
@@ -103,17 +104,17 @@ if ( ! function_exists( 'gnws_setup' ) ) :
 		);
 
 		// Add theme support for selective refresh for widgets.
-		add_theme_support( 'customize-selective-refresh-widgets' );
+		add_theme_support('customize-selective-refresh-widgets');
 
 		// Add support for editor styles.
-		add_theme_support( 'editor-styles' );
+		add_theme_support('editor-styles');
 
 		// Enqueue editor styles.
-		add_editor_style( 'style-editor.css' );
-		add_editor_style( 'style-editor-extra.css' );
+		add_editor_style('style-editor.css');
+		add_editor_style('style-editor-extra.css');
 
 		// Add support for responsive embedded content.
-		add_theme_support( 'responsive-embeds' );
+		add_theme_support('responsive-embeds');
 		/**
 		 * Add support for core custom logo.
 		 *
@@ -130,22 +131,23 @@ if ( ! function_exists( 'gnws_setup' ) ) :
 		);
 
 		// Remove support for block templates.
-		remove_theme_support( 'block-templates' );
+		remove_theme_support('block-templates');
 	}
 endif;
-add_action( 'after_setup_theme', 'gnws_setup' );
+add_action('after_setup_theme', 'gnws_setup');
 
 /**
  * Register widget area.
  *
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
-function gnws_widgets_init() {
+function gnws_widgets_init()
+{
 	register_sidebar(
 		array(
-			'name' => __( 'Footer', 'gnws' ),
+			'name' => __('Footer', 'gnws'),
 			'id' => 'sidebar-1',
-			'description' => __( 'Add widgets here to appear in your footer.', 'gnws' ),
+			'description' => __('Add widgets here to appear in your footer.', 'gnws'),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget' => '</section>',
 			'before_title' => '<h2 class="widget-title">',
@@ -153,12 +155,13 @@ function gnws_widgets_init() {
 		)
 	);
 }
-add_action( 'widgets_init', 'gnws_widgets_init' );
+add_action('widgets_init', 'gnws_widgets_init');
 
 /**
  * Enqueue scripts and styles.
  */
-function gnws_scripts() {
+function gnws_scripts()
+{
 	// if ( class_exists( 'WPCF7' ) ) {
 	// 	wp_enqueue_style( 'gnws-alert', get_template_directory_uri() . '/assets/alert/css/cf7simplepopup-core.css', array(), GNWS_VERSION );
 	// 	wp_enqueue_script( 'gnws-jquery_alert', get_template_directory_uri() . '/assets/alert/js/cf7simplepopup-core.js', array(), GNWS_VERSION, true );
@@ -166,27 +169,36 @@ function gnws_scripts() {
 	// }
 	// wp_enqueue_style( 'gnws-fancybox', get_template_directory_uri() . '/assets/libs/jquery.fancybox.css' );
 	// wp_enqueue_style( 'gnws-css-flickity', get_template_directory_uri() . '/assets/libs/flickity.min.css' );
-	wp_enqueue_style( 'gnws-css-font', get_template_directory_uri() . '/assets/fonts/font.css' );
-	wp_enqueue_style( 'gnws-style', get_stylesheet_uri(), array(), GNWS_VERSION );
+	wp_enqueue_style('gnws-css-main', get_template_directory_uri() . '/assets/libs/main.css');
+	wp_enqueue_style('gnws-css-font', get_template_directory_uri() . '/assets/fonts/font.css');
+	//wp_enqueue_style('gnws-style', get_stylesheet_uri(), array(), GNWS_VERSION);
 
 	// //JS
-	 wp_enqueue_script('jquery' );
+	wp_enqueue_script('jquery');
 	// wp_enqueue_script( 'gnws-js-flickity', get_template_directory_uri() . '/assets/libs/flickity.pkgd.js', array(), GNWS_VERSION, true );
 	// wp_enqueue_script( 'gnws-js-fancybox', get_template_directory_uri() . '/assets/libs/jquery.fancybox.js', array(), GNWS_VERSION, true );
-	wp_enqueue_script( 'gnws-script', get_template_directory_uri() . '/js/script.min.js', array(), GNWS_VERSION, true );
+	wp_enqueue_script('gnws-script', get_template_directory_uri() . '/js/script.min.js', array(), GNWS_VERSION, true);
+	wp_enqueue_script('gnws-js-ajaxcalls', get_template_directory_uri() . '/assets/libs/ajaxcalls.js', array(), GNWS_VERSION, true);
+	wp_enqueue_script('gnws-js-frontend', get_template_directory_uri() . '/assets/libs/frontend.js', array(), GNWS_VERSION, true);
+	wp_enqueue_script('gnws-js-owl-carousel-min', get_template_directory_uri() . '/assets/libs/owl.carousel.min.js', array(), GNWS_VERSION, true);
+	wp_enqueue_script('gnws-js-owl-carousel', get_template_directory_uri() . '/assets/libs/owl-carousel.js', array(), GNWS_VERSION, true);
+	wp_enqueue_script('gnws-js-search-box', get_template_directory_uri() . '/assets/libs/search-box.js', array(), GNWS_VERSION, true);
+	wp_enqueue_script('gnws-js-vnb-brb-collection', get_template_directory_uri() . '/assets/libs/vnb-brb-collection.js', array(), GNWS_VERSION, true);
+	wp_enqueue_script('gnws-js-bootstrap', get_template_directory_uri() . '/assets/libs/bootstrap.bundle.min.js', array(), GNWS_VERSION, true);
 
-	wp_localize_script( 'gnws-script', 'ajaxurl', array( 'ajaxurl' => admin_url( 'admin-ajax.php' ) ) );
+	wp_localize_script('gnws-script', 'ajaxurl', array('ajaxurl' => admin_url('admin-ajax.php')));
 
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-		wp_enqueue_script( 'comment-reply' );
+	if (is_singular() && comments_open() && get_option('thread_comments')) {
+		wp_enqueue_script('comment-reply');
 	}
 }
-add_action( 'wp_enqueue_scripts', 'gnws_scripts' );
+add_action('wp_enqueue_scripts', 'gnws_scripts');
 
 /**
  * Enqueue the block editor script.
  */
-function gnws_enqueue_block_editor_script() {
+function gnws_enqueue_block_editor_script()
+{
 	wp_enqueue_script(
 		'gnws-editor',
 		get_template_directory_uri() . '/js/block-editor.min.js',
@@ -198,15 +210,16 @@ function gnws_enqueue_block_editor_script() {
 		true
 	);
 }
-add_action( 'enqueue_block_editor_assets', 'gnws_enqueue_block_editor_script' );
+add_action('enqueue_block_editor_assets', 'gnws_enqueue_block_editor_script');
 
 /**
  * Enqueue the script necessary to support Tailwind Typography in the block
  * editor, using an inline script to create a JavaScript array containing the
  * Tailwind Typography classes from GNWS_TYPOGRAPHY_CLASSES.
  */
-function gnws_enqueue_typography_script() {
-	if ( is_admin() ) {
+function gnws_enqueue_typography_script()
+{
+	if (is_admin()) {
 		wp_enqueue_script(
 			'gnws-typography',
 			get_template_directory_uri() . '/js/tailwind-typography-classes.min.js',
@@ -217,10 +230,10 @@ function gnws_enqueue_typography_script() {
 			GNWS_VERSION,
 			true
 		);
-		wp_add_inline_script( 'gnws-typography', "tailwindTypographyClasses = '" . esc_attr( GNWS_TYPOGRAPHY_CLASSES ) . "'.split(' ');", 'before' );
+		wp_add_inline_script('gnws-typography', "tailwindTypographyClasses = '" . esc_attr(GNWS_TYPOGRAPHY_CLASSES) . "'.split(' ');", 'before');
 	}
 }
-add_action( 'enqueue_block_assets', 'gnws_enqueue_typography_script' );
+add_action('enqueue_block_assets', 'gnws_enqueue_typography_script');
 
 /**
  * Add the Tailwind Typography classes to TinyMCE.
@@ -228,11 +241,12 @@ add_action( 'enqueue_block_assets', 'gnws_enqueue_typography_script' );
  * @param array $settings TinyMCE settings.
  * @return array
  */
-function gnws_tinymce_add_class( $settings ) {
+function gnws_tinymce_add_class($settings)
+{
 	$settings['body_class'] = GNWS_TYPOGRAPHY_CLASSES;
 	return $settings;
 }
-add_filter( 'tiny_mce_before_init', 'gnws_tinymce_add_class' );
+add_filter('tiny_mce_before_init', 'gnws_tinymce_add_class');
 
 /**
  * Functions which enhance the theme by hooking into WordPress.

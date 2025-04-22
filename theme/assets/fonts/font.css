@@ -1,5 +1,64 @@
+/* BeVietnam100 - Regular */
 @font-face {
-    font-family: "SVN-Poppins";
-    src: url(./SVN-PoppinsRegular.ttf);
-    font-weight: 400;
+	font-family: BeVietnam100;
+	src: url(./beVietnam100-Regular.eot);
+	src:
+		url(./beVietnam100-Regular.eot?#iefix) format("embedded-opentype"),
+		url(./beVietnam100-Regular.woff) format("woff"),
+		url(./beVietnam100-Regular.ttf) format("truetype"),
+		url(./beVietnam100-Regular.otf) format("opentype");
+	font-weight: 400;
+	font-style: normal;
+}
+
+/* BeVietnam100 - SemiBold */
+@font-face {
+	font-family: BeVietnam100;
+	src: url(./beVietnam100-SemiBold.eot);
+	src:
+		url(./beVietnam100-SemiBold.eot?#iefix) format("embedded-opentype"),
+		url(./beVietnam100-SemiBold.woff) format("woff"),
+		url(./beVietnam100-SemiBold.ttf) format("truetype"),
+		url(./beVietnam100-SemiBold.otf) format("opentype");
+	font-weight: 600;
+	font-style: normal;
+}
+
+/* BeVietnam100 - Bold */
+@font-face {
+	font-family: BeVietnam100;
+	src: url(./beVietnam100-Bold.eot);
+	src:
+		url(./beVietnam100-Bold.eot?#iefix) format("embedded-opentype"),
+		url(./beVietnam100-Bold.woff) format("woff"),
+		url(./beVietnam100-Bold.ttf) format("truetype"),
+		url(./beVietnam100-Bold.otf) format("opentype");
+	font-weight: 700;
+	font-style: normal;
+}
+
+/* Icomoon Icon Font */
+@font-face {
+	font-family: icomoon;
+	src: url(./icomoon.eot);
+	src:
+		url(./icomoon.eot?#iefix) format("embedded-opentype"),
+		url(./icomoon.woff) format("woff"),
+		url(./icomoon.ttf) format("truetype");
+	font-weight: normal;
+	font-style: normal;
+	font-display: block;
+}
+
+/* IcoVisana Icon Font */
+@font-face {
+	font-family: icovisana;
+	src: url(./icovisana.eot);
+	src:
+		url(./icovisana.eot?#iefix) format("embedded-opentype"),
+		url(./icovisana.woff) format("woff"),
+		url(./icovisana.ttf) format("truetype");
+	font-weight: normal;
+	font-style: normal;
+	font-display: block;
 }
